@@ -1,3 +1,8 @@
+@font-face {
+	font-family: Blacksword;
+	src: url("polices/Blacksword.otf");
+}
+
 *{
 	margin: 0px;
 	padding: 0px;
@@ -11,11 +16,42 @@ body{
 	font-size: 3em;
 }
 
+.fixed_objects{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	position: fixed;
+}
+
+nav{
+	height: 100%;
+	width: 20%;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	/*display: none;*/
+	background: transparent;
+	transition: all 0.7s ease-in-out;
+}
+
+nav.open{
+	background-color: seagreen;
+}
+
+h1{
+	font-family: Blacksword;
+	margin-top: 100px;
+	font-size: 2em;
+	z-index: 2;
+}
+
 #first-page{
 	width: 100%;
 	background-image: url("images/jungle8.jpg");
 	background-size: cover;
 	background-position: center;
+	display: flex;
+	flex-direction: column;
 }
 
 #second-page{
@@ -33,6 +69,7 @@ body{
 	width: 50px;
 	position: fixed;
 	bottom: 90px;
+	align-self: center;
 }
 
 #down-arrow{
@@ -40,8 +77,76 @@ body{
 	width: 50px;
 	position: fixed;
 	bottom : 50px;
+	align-self: center;
 }
 
 #down-arrow:hover, #up-arrow:hover{
 	width: 60px;
+}
+
+.burger_menu{
+	width: 80px;
+	height: 80px;
+	position: fixed;
+	top: 30px;
+	right: 20px;
+	align-self: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: all 0.7s ease-in-out;
+	z-index: 10;
+}
+
+.burger_menu:hover{
+	transform: rotate(0.5turn);
+}
+
+.burger_menu.open .burger_line{
+	transform: translateX(-50px);
+	background: transparent;
+	transition: all 1s .5s ease-in-out;
+	box-shadow: none;
+}
+
+.burger_menu.open .burger_line::before{
+	transform: rotate(45deg) translate(35px, -35px);
+	transition: all 1s .5s ease-in-out;
+	box-shadow: none;
+}
+
+.burger_menu.open .burger_line::after{
+	transform: rotate(-45deg) translate(35px, 35px);
+	transition: all 1s .5s ease-in-out;
+	box-shadow: none;
+}
+
+.burger_line{
+	width: 50px;
+	height: 6px;
+	background-color: white;
+	border-radius: 5px;
+	transition: all 1s .5s ease-in-out;
+	box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+}
+
+.burger_line::before, .burger_line::after{
+	content: '';
+	display: block;
+	position: absolute;
+	width: 50px;
+	height: 6px;
+	background-color: white;
+	border-radius: 5px;
+	transition: all 1s .5s ease-in-out;
+	box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+}
+
+.burger_line::before{
+	transform: translateY(-16px);
+}
+
+.burger_line::after{
+	transform: translateY(16px);
 }
